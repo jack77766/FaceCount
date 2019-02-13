@@ -1,0 +1,113 @@
+<% include ./partials/header %>
+
+<div class= 'container mt-5'>
+   <div class='row'>
+      <div class>
+            <canvas id="canvas" width='600' height='400'></canvas>
+      </div>
+      <div class = 'col-med-4'>
+         <table class = 'table'>
+            <thead>
+                  <td><span style="color: lightblue;"><i class="fas fa-male"></span></i> Male</td>
+                  <td><span style="color: Pink;"><i class="fas fa-female"></i></span></i> Female </td>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>15</td>
+                  <td>16</td>
+               </tr>
+            </tbody>
+         </table>
+         <table class='table'>
+            <thead>
+               <td>Staff</td>
+               <td>Repeat</td>
+               <td>Effective</td>
+            </thead>
+            <tbody>
+               <td>5</td>
+               <td>12</td>
+               <td>25</td>
+            </tbody>
+         </table>
+         <tr>
+               
+            </tr>
+         <!-- <div class = 'row'>
+            <div class = col-med-6>
+               <p>Male</p>
+            </div>
+            <div class = col-med-6>
+               <p>Female</p>
+            </div>
+         </div> 
+         <div class = 'row'>
+            <div class = col-med-4>
+               <p>Staff</p>
+            </div>
+            <div class = col-med-4>
+               <p>Repeat Traffic</p>
+            </div>
+            <div class = col-med-4>
+                  <p>Effective Traffic</p>
+            </div>
+         </div>   -->
+      </div>
+   </div>
+		
+</div>
+
+<script>
+		var barChartData = {
+			labels: ['9:00-12:00', '12:00-3:00', '3:00-6:00', '6:00-9:00'],
+			datasets: [{
+				label: 'Women',
+				backgroundColor: 'rgba(255, 99, 132, 0.6)',
+				data: [
+					12,
+					18,
+					13,
+					16
+				]
+			}, {
+				label: 'Men',
+				backgroundColor: 'rgba(54, 162, 235, 0.6)',
+				data: [
+					16,
+					14,
+					11,
+					13
+				]
+			}]
+
+		};
+		window.onload = function() {
+         var ctx = document.getElementById('canvas').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					title: {
+						display: true,
+						text: 'Traffic - Daily'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+					responsive: true,
+					scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+				}
+			});
+		};
+	</script>
+
+
+<% include ./partials/footer %>
